@@ -40,16 +40,17 @@ namespace SgbProject.Services
             return (novobovino);
 
         }
-        public RemoveBovinoRequest Delete(RemoveBovinoRequest request)
+        public RemoveBovinoRequest Delete(Guid id, string motivo)
         {
-            var bovinoExistente = _bovinoRepository.GetById(request.id);
+            var bovinoExistente = _bovinoRepository.GetById(id);
             if (bovinoExistente != null)
             {
+                int motivoInt = Int32.Parse(motivo);
                 var baixa = new Baixa
                 {
                     Id = Guid.NewGuid(),
                     IdBovino = bovinoExistente.Id,
-                    Motivo = ((eMotivo)request.Motivo).ToString(),
+                    Motivo = ((eMotivo)motivoInt).ToString(),
                     DataBaixa = DateTime.Now,
                     IdUsuario = Guid.Parse("0CD60E1E-DC47-427D-B95C-2B58C4C65ACB"), //meu usuario
                     Apelido = bovinoExistente.Apelido,
@@ -69,7 +70,7 @@ namespace SgbProject.Services
                 _bovinoRepository.Remove(bovinoExistente);
                 _baixaRepository.SaveChanges();
                 _bovinoRepository.SaveChanges();
-                return (request);
+                return (null);
             }
             else
             {

@@ -36,7 +36,7 @@ builder.Services.AddScoped<IUsuariosService, UsuariosService>(us =>
 
 
 builder.Services.AddDbContext<Context>(options =>
-options.UseSqlServer("server=.\\SQLEXPRESS;database=SGB;trusted_connection=true;"));
+options.UseSqlServer("server=.\\SQLEXPRESS;database=SGB;trusted_connection=true;Integrated Security=True;"));
 //notebook//options.UseSqlServer("server=DESKTOP-DQFMKA0\\SQLEXPRESS;database=SGB;trusted_connection=true;"));
 //options.UseSqlServer("" +
 //"Data Source=.;" +
@@ -48,6 +48,15 @@ options.UseSqlServer("server=.\\SQLEXPRESS;database=SGB;trusted_connection=true;
 //"TrustServerCertificate=False"
 //));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -58,7 +67,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(options => options.AllowAnyOrigin());
+
+
+
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 

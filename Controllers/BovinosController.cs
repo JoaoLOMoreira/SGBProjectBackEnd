@@ -49,9 +49,10 @@ namespace SgbProject.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> DeletBovino([FromQuery] RemoveBovinoRequest command)
+        [Route("{id:guid}/{motivo}")]
+        public async Task<ActionResult> DeletBovino([FromRoute] Guid id, string motivo)
         {
-            return Ok(_bovinosService.Delete(command));
+            return Ok(_bovinosService.Delete(id, motivo));
         }
 
     }

@@ -10,7 +10,7 @@ namespace SgbProject.Services
         public Bovino GetBovino(Guid id);
         public Bovino AddBovino(Bovino bovino);
         public Bovino UpdateBovino(Bovino bovino);
-        public RemoveBovinoRequest Delete(RemoveBovinoRequest command);
+        public RemoveBovinoRequest Delete(Guid id, string motivo);
 
     }
 
