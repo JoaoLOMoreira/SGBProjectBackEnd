@@ -5,7 +5,7 @@ namespace SgbProject.Repositories
 {
     public class BaixaRepository : GenericRepository<Baixa>
     {
-        public BaixaRepository(Context context) : base(context)
+        public BaixaRepository(ApplicationContext context) : base(context)
         {
         }
     }

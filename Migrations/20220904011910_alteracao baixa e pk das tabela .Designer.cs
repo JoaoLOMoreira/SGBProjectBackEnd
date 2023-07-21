@@ -11,7 +11,7 @@ using SgbProject.Data;
 
 namespace SgbProject.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20220904011910_alteracao baixa e pk das tabela ")]
     partial class alteracaobaixaepkdastabela
     {

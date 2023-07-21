@@ -11,7 +11,7 @@ using SgbProject.Data;
 
 namespace SgbProject.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20220903231910_update-database")]
     partial class updatedatabase
     {

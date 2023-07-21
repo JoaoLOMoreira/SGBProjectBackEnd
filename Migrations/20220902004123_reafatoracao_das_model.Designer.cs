@@ -11,7 +11,7 @@ using SgbProject.Data;
 
 namespace SgbProject.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20220902004123_reafatoracao_das_model")]
     partial class reafatoracao_das_model
     {

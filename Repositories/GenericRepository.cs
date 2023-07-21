@@ -5,9 +5,9 @@ namespace SgbProject.Repositories
 {
     public abstract class GenericRepository<T> : IRepository<T> where T : class
     {
-        protected Context context;
+        protected ApplicationContext context;
 
-        public GenericRepository(Context context)
+        public GenericRepository(ApplicationContext context)
         {
             this.context = context;
         }

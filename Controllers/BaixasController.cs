@@ -13,7 +13,7 @@ namespace SgbProject.Controllers
         {
             _baixasService = baixasService;
         }
-
+        
         [HttpGet]
         public IEnumerable<Baixa> GetAllBaixas()
         {

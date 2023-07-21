@@ -11,7 +11,7 @@ using SgbProject.Data;
 
 namespace SgbProject.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20220902004527_alteracao_de_nome_de_campo")]
     partial class alteracao_de_nome_de_campo
     {

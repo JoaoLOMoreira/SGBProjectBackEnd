@@ -7,7 +7,7 @@ namespace SgbProject.Repositories
 {
     public class BovinosRepository : GenericRepository<Bovino>
     {
-        public BovinosRepository(Context context) : base(context)
+        public BovinosRepository(ApplicationContext context) : base(context)
         {
         }
     }
